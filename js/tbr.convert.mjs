@@ -101,3 +101,24 @@ tbr.convert.hexToWindows1251 = function(hex, errorPrefix = 'tbr.convert.hexToWin
 	tbr.assert.hex(hex, errorPrefix);
 	return tbr.convert.uint8ArrayToWindows1251(tbr.convert.hexToUint8Array(hex, errorPrefix), errorPrefix);
 }
+
+
+
+
+/* Protect from javascript injections. */
+tbr.convert.stringToEntity = function(string, errorPrefix = 'tbr.convert.stringToEntity')
+{
+	tbr.assert.string(string, errorPrefix);
+	let result = "";
+	for(let i = 0; i < string.length; i++)
+		result += `&#${string.charCodeAt(i)};`;
+	return result;
+}
+tbr.convert.entityToString = function(entity, errorPrefix = 'tbr.convert.entityToString')
+{
+	tbr.assert.string(entity, errorPrefix);
+	return entity.replace(/&#(\d+);/g, function(match, charCode) {
+		return String.fromCharCode(charCode);
+	});
+}
+
