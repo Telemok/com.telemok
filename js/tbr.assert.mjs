@@ -134,7 +134,7 @@ tbr.assert.function = function(functionToAssert, errorName = "tbr.assert.functio
 
 	return error;
 }
-var tbrAssertVarNameRegex = new RegExp(/^([a-zA-Z_]+)([a-zA-Z0-9_]*)$/g);
+const tbrAssertVarNameRegex = new RegExp(/^([a-zA-Z_]+)([a-zA-Z0-9_]*)$/);
 
 tbr.assert.varName = function(varName, errorName = "tbr.assert.varName")
 {
@@ -174,7 +174,7 @@ tbr.assert.enum = function(enumToAssert, enumArray, errorName = "")
 
 tbr.assert.elem = function(elemToAssert, errorName = 'tbr.assert.elem')//throwable
 {
-	let error = tbr.assert.string(elemToAssert, errorName);
+	let error = tbr.assert.object(elemToAssert, errorName);
 
 	if(document.body.baseURI !== elemToAssert.baseURI)
 		error.tbrThrow(`elemToAssert not DOM element`);
