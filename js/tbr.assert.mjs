@@ -4,9 +4,9 @@
 
 /*
 example:
-import (tbr) from "tbr.assert.js"
+import {tbr} from "https://cdn.jsdelivr.net/gh/telemok/com.telemok@master/js/tbr.assert.mjs"
 let assoc = JSON.parse(someJson);
-let name = tbr.extract(assoc, "userName", "Parsing server response");
+let name = tbr.extract.varName(assoc, "userName", "Parsing server response");
 */
 export var tbr = {};
 
@@ -152,10 +152,10 @@ tbr.assert.hex = function(hexToCheck, errorName = "tbr.assert.hex")
 
 	if(hexToCheck.length % 2 !== 0)
 		error.tbrThrow(`length must be even, but now length = ${hexToCheck.length}`);
-	else if(!hexToCheck.length)
-		error.tbrThrow(`length must be > 0`);
-	else if(!(/^([0-9A-F]+)$/i.test(hexToCheck)))
-		error.tbrThrow(`must be (/^([0-9A-F]+)$/i`);
+	//else if(!hexToCheck.length)
+	//	error.tbrThrow(`length must be > 0`);
+	else if(!(/^([0-9A-F]*)$/i.test(hexToCheck)))
+		error.tbrThrow(`must be (/^([0-9A-F]*)$/i`);
 
 	return error;
 }
@@ -407,3 +407,15 @@ tbr.extract.uint8Array=function(parameters, extractKey, errorPrefix='tbr.extract
 
 	return result;
 };
+
+
+
+
+
+
+
+var tbrAssert = tbr.assert;
+var tbrValidate = tbr.validate;
+var tbrExtract = tbr.extract;
+export {tbrAssert as assert, tbrValidate as validate, tbrExtract as extract};
+
