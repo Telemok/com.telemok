@@ -10,7 +10,7 @@ let adcVoltage = b.shiftUint(12);//get first 12 bits
 let isPowerOn = b.shiftBool();
 */
 
-import {tbr} from "https://cdn.jsdelivr.net/gh/telemok/com.telemok@master/js/tbr.convert.mjs"
+import {tbr} from "https://cdn.jsdelivr.net/gh/telemok/com.telemok@a4d3d5d/js/tbr.convert.mjs"
 export {tbr};
 
 /*LSB Bit Buffer*/
