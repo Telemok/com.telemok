@@ -8,7 +8,7 @@ import {convert} from "https://cdn.jsdelivr.net/gh/telemok/com.telemok@master/js
 let a = convert.hexToUint8Array("ABCD");
 */
 
-import {tbr} from "https://cdn.jsdelivr.net/gh/telemok/com.telemok@a4d3d5d/js/tbr.assert.js"
+import {tbr} from "https://cdn.jsdelivr.net/gh/telemok/com.telemok@a4d3d5d/js/tbr.assert.mjs"
 export {tbr};
 tbr.convert = {};
 export var convert = tbr.convert;
