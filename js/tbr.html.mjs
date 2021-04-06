@@ -5,7 +5,7 @@
 /*
 example:
 <TABLE>
-    <TBODY id="tbody">
+	<TBODY id="tbody">
 	</TBODY>
 </TABLE>
 <SCRIPT type="module">
@@ -66,13 +66,7 @@ tbr.random.generateStringFromString = (string, length = 1) =>
 	tbr.assert.string(string);
 	tbr.assert.integerLimited(string.length, 1, 0xFFFFFF);
 	let array = Array.from(string);
-	let s = "";
-	while(length--)
-	{
-		/*No array symbol check*/
-		s += array[Math.floor(Math.random() * array.length)];
-	}
-	return s;
+	return tbr.random.generateStringFromArray(array, length);
 }
 
 tbr.random.generateString_AZ = (length = 1) =>{return tbr.random.generateStringFromArray(tbr.random.ARRAY_AZ, length);}
